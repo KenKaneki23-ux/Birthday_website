@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import Button from './ui/Button';
+import defaultKrishnaImg from '../assets/krishna.png';
 
 interface BirthdayIntroProps {
   years?: number;
@@ -12,7 +13,7 @@ export default function BirthdayIntro({ years = 20, onComplete }: BirthdayIntroP
   const [showContent, setShowContent] = useState(false);
   const [isReady, setIsReady] = useState(false);
 
-  const [imgSrc, setImgSrc] = useState('/src/assets/krishna.png');
+  const [imgSrc, setImgSrc] = useState(defaultKrishnaImg);
 
   useEffect(() => {
     if (count > 0) {
@@ -43,10 +44,9 @@ export default function BirthdayIntro({ years = 20, onComplete }: BirthdayIntroP
           <div className="mb-8">
             <img 
               src={imgSrc} 
-              onError={() => setImgSrc('https://picsum.photos/seed/krishna/800/600')}
               alt="Baby Krishna" 
               className="w-full max-w-md md:max-w-xl h-auto"
-              referrerPolicy="no-referrer"
+              draggable={false}
             />
           </div>
           
